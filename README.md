@@ -1,9 +1,9 @@
 # FuzzingLLM
 This is the official repository for "RatAttacker: Escaping LLM Security Maze for Effective Jailbreaking"
-[maze_motivation_with_example.pdf](https://github.com/user-attachments/files/16902811/maze_motivation_with_example.pdf)
+![maze_motivation_with_example.pdf](./figure/maze_motivation_with_example.png)
 
 Here's the framework of our attack approach
-[overview.pdf](https://github.com/user-attachments/files/16902826/overview.pdf)
+![overview.pdf](./figure/overview.png)
 
 
 ## Environment setup
@@ -29,13 +29,16 @@ python RL.py
 ```
 ## MARL
 We use AgileRL to conduct the experiment. The framework of the multi-agent RL is:
-[rl.pdf](https://github.com/user-attachments/files/16902883/rl.pdf)
+![rl.pdf](./figure/rl.png)
 
 
 You should change the target model name in line 20, and you can reload the attack process by cancel the comment in line 145.
 ```shell
 python RL_MADDPG.py
 ```
+
+We provide the average accumulated_reward of the successful attack when attacking Deepseek-chat as follow:
+![accumulated_reward.pdf](./figure/accumulated_reward.png)
 ## calculate the ASR
 Set the attack time and the target model name in asr.py, and run the following code to calculate the ASR.
 ```shell
