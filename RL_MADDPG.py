@@ -17,7 +17,7 @@ def load_checkpoint(agent, filename):
     else:
         print(f"No checkpoint found at {filename}")
 
-target_model_name = 'deepseek-coder' # "claude-3-5-sonnet-20240620" # "llama-3.1-8b"
+target_model_name = 'qwen2' # "claude-3-5-sonnet-20240620" # "llama-3.1-8b"
 
 
 if __name__ == "__main__":
