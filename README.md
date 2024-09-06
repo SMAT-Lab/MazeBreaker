@@ -45,5 +45,22 @@ Set the attack time and the target model name in asr.py, and run the following c
 python asr.py
 ```
 
+
 ## calculate the attack data
 We give the script in script folder to calculate the attack data. 
+
+In [calculate.ipynb](./script/calculate.ipynb), we give the script to calculate the iteration number and the success rate of the attack during the iteraion.
+
+In [asr.ipynb](./script/asr.ipynb), we give the script to calculate the final Top1-ASR and Top5-ASR of the attack.
+
+In [iq_epoch](./script/iq_epoch.ipynb), we give the script to calculate the average accumulated reward and iq of the successful attack.
+
+Besides, we use another two judgement model to evaluate the attack. You can use it in the script/FT_Roberta and script/Llamaguard folder.
+
+
+
+## Results of our framework
+We provide the results of our framework using three different judgement models.
+![GPT-4o-mini.pdf](./figure/table4.png)
+![FT-Roberta.pdf](./figure/table5.png)
+![Llamaguard3-8b.pdf](./figure/table6.png)

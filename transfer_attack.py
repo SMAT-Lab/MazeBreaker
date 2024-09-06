@@ -14,7 +14,7 @@ def read_template_csv(file_path):
     templates = df['Template'].values
     return templates
 
-templates = read_template_csv('srcipt/transfer_attack/top_templates_asr.csv')
+templates = read_template_csv('script/transfer_attack/top_templates_asr.csv')
 
 models = ['gemini-1.5-flash']# ['gpt-4o', 'gpt-4o-mini', 'deepseek-coder', 'deepseek-chat', 'claude-3-5-sonnet-20240620', 'glm-4-air', 'gpt-3.5-turbo', 'llama-3.1-8b', 'llama-3-70b', 'llama-3.1-70b']
 
