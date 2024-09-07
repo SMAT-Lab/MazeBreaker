@@ -1,5 +1,5 @@
 import random
-from llm import OpenAILLM, LocalVLLM, LocalLLM, GPTGodLLM, OllamaLLM, DeepSeekLLM
+from llm import OpenAILLM, GPTGodLLM, OllamaLLM, DeepSeekLLM
 from enum import Enum
 from seed import Seed, SeedPooling, SeedSelectionPolicy, UCB_const, Score_upper_limit, Score_lower_limit, Score_insert_standard, Score_delete_standard
 from tool import SeedOperation, OpenAI_API, GPTGod_API
@@ -92,14 +92,8 @@ class AgentModel(Agent):
     def __load_gptgod_llm(self):
         self.model = GPTGodLLM(self.model_path, api_key=GPTGod_API, system_message=self.system_message)
 
-    def __load_local_vllm(self):
-        self.model = LocalVLLM(self.model_path, gpu_memory_utilization=0.80)
-
     def __load_openai_llm(self):
         self.model = OpenAILLM(self.model_path, api_key=OpenAI_API)
-
-    def __load_local_llm(self):
-        self.model = LocalLLM(self.model_path)
 
     def __load_ollama_llm(self):
         self.model = OllamaLLM(self.model_path, system_message=self.system_message)

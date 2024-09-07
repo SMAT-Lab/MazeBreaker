@@ -20,8 +20,7 @@ pip install -r requirements.txt
 We use [GPTGod](https://gptgod.online/), [deepseek](https://platform.deepseekc.om), [ollama](https://www.ollama.com), [openai](https://platform.openai.com)  as the interface of LLM. You can use the following code to interact with LLM.
 
 You should input the api-key in tool.py
-You should input the api-key in jailbreak_evaluation.py in line 38
-and set the api key in llm/llm.py
+Besides, you should verify your path of embedding_model in line 273 of [Fuzzing.py](Fuzzing_v1/Fuzzing/Fuzzing.py)
 
 ## single RL
 ```shell
@@ -53,7 +52,7 @@ In [calculate.ipynb](./script/calculate.ipynb), we give the script to calculate 
 
 In [asr.ipynb](./script/asr.ipynb), we give the script to calculate the final Top1-ASR and Top5-ASR of the attack.
 
-In [iq_epoch](./script/iq_epoch.ipynb), we give the script to calculate the average accumulated reward and iq of the successful attack.
+In [iq_epoch.ipynb](./script/iq_epoch.ipynb), we give the script to calculate the average accumulated reward and iq of the successful attack.
 
 Besides, we use another two judgement model to evaluate the attack. You can use it in the script/FT_Roberta and script/Llamaguard folder.
 

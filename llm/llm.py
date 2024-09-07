@@ -5,9 +5,9 @@ import logging
 import time
 import concurrent.futures
 import google.generativeai as palm
-from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
 import httpx
 import requests
+from tool import OpenAI_API, OpenAI_BASE_URL
 # from vllm import LLM as vllm
 # from vllm import SamplingParams
 
@@ -149,7 +149,8 @@ class OpenAILLM(LLM):
                 ):
         super().__init__()
         self.client = OpenAI(
-            api_key='',
+            base_url=OpenAI_BASE_URL,
+            api_key=OpenAI_API,
         )
 
         self.model_path = model_path

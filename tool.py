@@ -3,7 +3,8 @@ from enum import Enum
 import configparser
 import os
 
-OpenAI_API = ""
+OpenAI_API = "Your API KEY"
+OpenAI_BASE_URL = "https://api.openai.com/v1/"
 GPTGod_API = ""
 def prompt_compose(question_mutated : str
                    , template_mutated : str):

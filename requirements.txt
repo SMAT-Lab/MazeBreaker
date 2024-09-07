@@ -1,13 +1,14 @@
-agilerl
+agilerl==0.1.22
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl#sha256=86cc141f63942d4b2c5fcee06630fd6f904788d2f0ab005cce45aadb8fb73889
 fastapi
-fschat[model_worker,webui]
+fschat[model_worker,webui]==0.2.36
 google-generativeai
 gym==0.26.2
 gymnasium==0.28.1
 httpx
 huggingface-hub
 Jinja2
+multi_agent_ale_py
 ninja
 nltk
 numpy
@@ -17,6 +18,7 @@ pandas
 peft
 pettingzoo
 protobuf
+pygame
 requests
 scikit-learn
 scipy
@@ -25,6 +27,7 @@ sentence_transformers
 spacy
 tianshou
 tiktoken
+tenacity
 torch==2.3.1
 torchvision
 tqdm

@@ -17,12 +17,10 @@ from seed import SeedPooling, SeedSelectionPolicy, SeedSelection
 from pettingzoo.utils.env import ParallelEnv
 
 from pettingzoo.atari.base_atari_env import (
-    BaseAtariEnv,
     base_env_wrapper_fn,
     parallel_wrapper_fn,
 )
 
-# 定义变异策略集合
 question_policies = [
     MutatePolicy.Euphemize,
     MutatePolicy.Substitution,
@@ -40,10 +38,9 @@ template_policies = [
 ]
 
 class CustomEnv(ParallelEnv, EzPickle):
-    """自定义环境，单智能体，25种组合变异策略"""
     def __init__(self, question, template, response, judgement_model, embedding_model, mutate, prompt_compose, logger, question_seed, template_seed, question_pool, template_pool):
         super(CustomEnv, self).__init__()
-        action_space = spaces.Discrete(5)  # 25种组合变异策略
+        action_space = spaces.Discrete(5)  # 25 mutate policy
         self.embedding_model = embedding_model
         self.question = question
         self.template = template
@@ -62,10 +59,8 @@ class CustomEnv(ParallelEnv, EzPickle):
         self.state = self._get_embedding(question, template)
         self.state1 = self.embedding_model.encode([response])[0]
 
-        # 拼接 state 和 state1
         self.combined_state = np.concatenate((self.state, self.state1))
 
-        # 更新 observation_space 以适应新的维度
         observation_space = spaces.Box(
             low=-np.inf, high=np.inf, shape=(self.combined_state.shape[0],), dtype=np.float32
         )
@@ -140,7 +135,6 @@ class CustomEnv(ParallelEnv, EzPickle):
                 self.state = self._get_embedding(self.question, self.template)
                 self.state1 = self.embedding_model.encode([self.response])[0]
 
-                # 拼接 state 和 state1
                 self.combined_state = np.concatenate((self.state, self.state1))
 
                 return {agent: self.combined_state for agent in self.agents}, {agent: reward for agent in self.agents}, {agent: done for agent in self.agents}, {agent: truncated for agent in self.agents}, {agent: info for agent in self.agents}
@@ -201,46 +195,34 @@ from pettingzoo.utils.conversions import parallel_to_aec_wrapper
 def BaseFuzzingEnv(**kwargs):
     return parallel_to_aec_wrapper(CustomEnv(**kwargs))
 
-# 文件路径配置
 question_seed_init_file = "./experiments/" + 'question_seed.csv'
 template_seed_init_file = "./experiments/" + 'template_seed.csv'
 
-# question_seed_init_file = "./experiments/" + '/single_question.csv'
-# template_seed_init_file = f"./fuzzing/20240808_043757_deepseek-chat/template_result.csv"
-# 是否重载种子模板
-reload = True
-# target_model_name = 'gpt-3.5-turbo'
-# reload_time = '20240805_134228'
-#target_model_name = 'gpt-4o-mini'
-target_model_name = 'deepseek-coder' # 'llama-3.1-8b'# 'glm-4-air' #'gpt-4o-mini'#'mistral-nemo'#'claude-3-5-sonnet-20240620' 'deepseek-coder' 'glm-4-air' gemini-1.5-flash gemma2
-reload_time = '20240829_234126'
-# 获取当前时间并格式化为字符串
+# reload
+reload = False
+target_model_name = 'gpt-4o-mini' 
+
 current_time = datetime.now().strftime("%Y%m%d_%H%M%S") + '_' + target_model_name
 if reload:
+    reload_time = '20240829_234126'
     template_seed_init_file = f"./fuzzing/{reload_time}_{target_model_name}/template_result.csv"
-    # target_model_name = 'llama-3.1-405b'
     current_time = reload_time + '_' + target_model_name
 
 # Configure the logger
 logger = logging.getLogger('custom_env_logger')
 logger.setLevel(logging.DEBUG)
 
-# 创建控制台处理程序并配置格式
 ch = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s', datefmt='%Y-%m-%d:%H:%M:%S')
 ch.setFormatter(formatter)
 
-# 获取当前时间并格式化为字符串
-log_filename = f'log/MADDPG/{current_time}_{target_model_name}.log'
-# 创建文件处理程序并配置格式
+log_filename = f'log/MADDPG/{current_time}.log'
 fh = logging.FileHandler(log_filename)
 fh.setFormatter(formatter)
 
-# 将处理程序添加到logger
 logger.addHandler(ch)
 logger.addHandler(fh)
 
-# 加载spaCy的英文模型
 nlp = spacy.load("en_core_web_sm")
 
 result_dir = './fuzzing/' + current_time
@@ -248,28 +230,11 @@ os.makedirs(result_dir, exist_ok=True)
 question_seed_result_file = result_dir + '/question_result.csv'
 template_seed_result_file = result_dir + '/template_result.csv'
 
-# 种子选择策略配置
 quesiton_seed_selection = SeedSelection(policy=SeedSelectionPolicy.selection_policy_map('random'))
 template_seed_selection = SeedSelection(policy=SeedSelectionPolicy.selection_policy_map('ucb'))
 
-# 种子池配置
 question_pool = SeedPooling(save_path=question_seed_result_file, init_path=question_seed_init_file, select_policy=quesiton_seed_selection)
 template_pool = SeedPooling(save_path=template_seed_result_file, init_path=template_seed_init_file, select_policy=template_seed_selection, reload=reload)
-
-# 定义 mutate 函数
-# def mutate(question, template, question_policy=MutatePolicy.Euphemize, template_policy=MutatePolicy.CrossOver, logger=None):
-#     question_mutated = mutate_question_agent.mutate(question, question_policy)
-#     logger.debug(f"question_mutated: {question_mutated}")
-#     template_mutated = mutate_template_agent.mutate(template, template_policy)
-#     logger.debug(f"template_mutated: {template_mutated}")
-#     prompt = prompt_compose(question_mutated, template_mutated)
-#     response = target_model.run(prompt)
-#     logger.debug(f"response: {response}")
-#     logger.debug("chunking....")
-#     chunks = retrieval(question, response)
-#     logger.debug("calculate iq....")
-#     iq = calculate_iq(chunks)
-#     return question_mutated, template_mutated, response, iq
 
 def mutate(question, template, question_policy=MutatePolicy.Euphemize, template_policy=MutatePolicy.CrossOver, logger=None):
     question_mutated = question
@@ -305,7 +270,7 @@ question = question_seed.visit()
 template = template_seed.visit()
 origin_answer =  target_model.run(question)
 
-embedding_model = SentenceTransformer('paraphrase-MiniLM-L6-v2', cache_folder="./model", trust_remote_code=True)
+embedding_model = SentenceTransformer('/home/RatAttacker/model/models--sentence-transformers--paraphrase-MiniLM-L6-v2/snapshots/3bf4ae7445aa77c8daaef06518dd78baffff53c9', cache_folder="./model", trust_remote_code=True)
 
 def sent_chunking(text):
     doc = nlp(text)
