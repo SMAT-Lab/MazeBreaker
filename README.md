@@ -5,6 +5,24 @@ This is the official repository for "RatAttacker: Escaping LLM Security Maze for
 Here's the framework of our attack approach
 ![overview.pdf](./figure/overview.png)
 
+# Table of content
+- [About](#About)
+- [Environment setup](#environment-setup)
+- [LLM's interface](#llms-interface)  
+- [single RL](#single-rl)
+- [MARL](#marl)
+- [ASR calculate](#calculate-script)
+- [Results of our framework](#results-of-our-framework)
+- [Citing our work](#citing-our-work)
+
+## About
+### Introduction
+What is RatAttacker?
+RatAttacker is a useful LLM jailbreak attack method which use reinforecement learning to find the most effective templates to jailbreak the LLMs.
+
+### Resource
++ [Paper](): Details the methods and the framework's design.
++ [Website](https://sites.google.com/view/ratattacker/home): The prompt designs and the detail results of our method.
 
 ## Environment setup
 
@@ -38,14 +56,16 @@ python RL_MADDPG.py
 
 We provide the average accumulated_reward of the successful attack when attacking Deepseek-chat as follow:
 ![accumulated_reward.pdf](./figure/accumulated_reward.png)
-## calculate the ASR
+
+## calculate script
+### calculate the ASR
 Set the attack time and the target model name in asr.py, and run the following code to calculate the ASR.
 ```shell
 python asr.py
 ```
 
 
-## calculate the attack data
+### calculate the attack data
 We give the script in script folder to calculate the attack data. 
 
 In [calculate.ipynb](./script/calculate.ipynb), we give the script to calculate the iteration number and the success rate of the attack during the iteraion.
@@ -61,3 +81,7 @@ Besides, we use another two judgement model to evaluate the attack. You can use 
 ## Results of our framework
 We provide the results of our framework using two different judgement models.
 ![table4_5](https://github.com/user-attachments/assets/6960fbcc-b8f4-4197-a760-338182667a0f)
+
+## Citing our work
+```cite
+```
