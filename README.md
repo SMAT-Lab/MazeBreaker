@@ -1,11 +1,7 @@
-# FuzzingLLM
-This is the official repository for "RatAttacker: Escaping LLM Security Maze for Effective Jailbreaking"
-![maze_motivation_with_example.pdf](./figure/maze_motivation_with_example.png)
-
-Here's the framework of our attack approach
-![overview.pdf](./figure/overview.png)
+# RatAttacker
 
 # Table of content
+- [Framework](#framework)
 - [About](#About)
 - [Environment setup](#environment-setup)
 - [LLM's interface](#llms-interface)  
@@ -14,6 +10,14 @@ Here's the framework of our attack approach
 - [ASR calculate](#calculate-script)
 - [Results of our framework](#results-of-our-framework)
 - [Citing our work](#citing-our-work)
+
+  # Framework
+This is the official repository for "RatAttacker: Escaping LLM Security Maze for Effective Jailbreaking"
+![maze_motivation_with_example.pdf](./figure/maze_motivation_with_example.png)
+
+Here's the framework of our attack approach
+![overview.pdf](./figure/overview.png)
+
 
 ## About
 ### Introduction
