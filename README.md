@@ -59,7 +59,5 @@ Besides, we use another two judgement model to evaluate the attack. You can use 
 
 
 ## Results of our framework
-We provide the results of our framework using three different judgement models.
-![GPT-4o-mini.pdf](./figure/table4.png)
-![FT-Roberta.pdf](./figure/table5.png)
-![Llamaguard3-8b.pdf](./figure/table6.png)
+We provide the results of our framework using two different judgement models.
+![table4_5](https://github.com/user-attachments/assets/6960fbcc-b8f4-4197-a760-338182667a0f)
