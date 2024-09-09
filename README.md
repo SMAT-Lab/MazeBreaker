@@ -27,6 +27,7 @@ RatAttacker is a useful LLM jailbreak attack method which use reinforecement lea
 ### Resource
 + [Paper](): Details the methods and the framework's design.
 + [Website](https://sites.google.com/view/ratattacker/home): The prompt designs and the detail results of our method.
++ [Results](https://drive.google.com/drive/folders/1kVZDMlj682CVNJGHxehKpDttXQ6a3MPX?usp=drive_link)
 
 ## Environment setup
 
@@ -62,7 +63,7 @@ We provide the average accumulated_reward of the successful attack when attackin
 ![accumulated_reward.pdf](./figure/accumulated_reward.png)
 
 ## calculate script
-### calculate the ASR
+### ASR
 Set the attack time and the target model name in asr.py, and run the following code to calculate the ASR.
 ```shell
 python asr.py
@@ -83,7 +84,7 @@ Besides, we use another two judgement model to evaluate the attack. You can use 
 
 
 ## Results of our framework
-We provide the results of our framework using two different judgement models.
+We provide the [results](https://drive.google.com/drive/folders/1kVZDMlj682CVNJGHxehKpDttXQ6a3MPX?usp=drive_link) of our framework using two different judgement models.
 ![table4_5](https://github.com/user-attachments/assets/6960fbcc-b8f4-4197-a760-338182667a0f)
 
 ## Citing our work
