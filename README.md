@@ -27,7 +27,7 @@ RatAttacker is a useful LLM jailbreak attack method which use reinforecement lea
 ### Resource
 + [Paper](): Details the methods and the framework's design.
 + [Website](https://sites.google.com/view/ratattacker/home): The prompt designs and the detail results of our method.
-+ [Results](https://drive.google.com/drive/folders/1kVZDMlj682CVNJGHxehKpDttXQ6a3MPX?usp=drive_link)
++ [Results](https://drive.google.com/drive/folders/1kVZDMlj682CVNJGHxehKpDttXQ6a3MPX?usp=drive_link): Due to ethical concern, we decided not to release the adversarial templates we found during our experiments openly. However, we are happy to share them with researchers who are interested in this topic. Please contact us via email if you would like to get access to the templates we found during the experiments. Also, you can use the code in this repository to generate your own adversarial templates.
 
 ## Environment setup
 
