@@ -55,7 +55,9 @@ python RL.py
 ```
 ## MARL
 We use AgileRL to conduct the experiment. The framework of the multi-agent RL is:
-![rl.pdf](./figure/rl.png)
+<p align="center">
+<img src="./figure/rl.png" alt="drawing" width="600"/>
+</p>
 
 
 You should change the target model name in line 20, and you can reload the attack process by cancel the comment in line 145.
@@ -64,7 +66,9 @@ python RL_MADDPG.py
 ```
 
 We provide the average accumulated_reward of the successful attack when attacking Deepseek-chat as follow:
-![accumulated_reward.pdf](./figure/accumulated_reward.png)
+<p align="center">
+<img src="./figure/accumulated_reward.png" alt="drawing" width="600"/>
+</p>
 
 ## calculate script
 ### ASR
