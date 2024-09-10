@@ -16,8 +16,7 @@ This is the official repository for "RatAttacker: Escaping LLM Security Maze for
 ![maze_motivation_with_example.pdf](./figure/maze_motivation_with_example.png)
 
 Here's the framework of our attack approach
-![overview.pdf](./figure/overview.png)
-<img src="./figure/overview.png" alt="drawing" width="200"/>
+<img src="./figure/overview.png" alt="drawing" width="600"/>
 
 
 ## About
