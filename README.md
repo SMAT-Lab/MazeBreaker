@@ -48,6 +48,15 @@ We use [GPTGod](https://gptgod.online/), [deepseek](https://platform.deepseekc.o
 
 You should input the api-key in tool.py
 Besides, you should verify your path of embedding_model in line 273 of [Fuzzing.py](Fuzzing_v1/Fuzzing/Fuzzing.py)
+```shell
+export API_KEY=xxxxxxx
+export embedding_model_path=xxxxxxxx
+```
+In the code, we read them from the environment
+```python
+API_KEY = os.environ['API_KEY'] if 'API_KEY' in os.environ else assert False,"Please set API_KEY"
+embedding_model_path = os.environ['embedding_model_path'] if 'embedding_model_path' in os.environ else assert False,"Please set embedding_model_path"
+```
 
 ## single RL
 ```shell
