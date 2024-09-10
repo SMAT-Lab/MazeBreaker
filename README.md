@@ -13,10 +13,14 @@
 
   # Framework
 This is the official repository for "RatAttacker: Escaping LLM Security Maze for Effective Jailbreaking"
-<img src="./figure/maze_motivation_with_example.png" alt="drawing" width="600"/>
+<p align="center">
+<img src="./figure/maze_motivation_with_example.png" alt="drawing" width="800"/>
+</p>
 
 Here's the framework of our attack approach
+<p align="center">
 <img src="./figure/overview.png" alt="drawing" width="600"/>
+</p>
 
 
 ## About
