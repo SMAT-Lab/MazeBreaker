@@ -47,13 +47,26 @@ pip install -r requirements.txt
 We use [GPTGod](https://gptgod.online/), [deepseek](https://platform.deepseekc.om), [ollama](https://www.ollama.com), [openai](https://platform.openai.com)  as the interface of LLM. You can use the following code to interact with LLM.
 
 ```shell
-export API_KEY=xxxxxxx
+export OPENAI_API_KEY=xxxxxxx
+export OPENAI_BASE_URL=xxxx
 export embedding_model_path=xxxxxxxx
 ```
 In the code, we read them from the environment
 ```python
-API_KEY = os.environ['API_KEY'] if 'API_KEY' in os.environ else assert False,"Please set API_KEY"
-embedding_model_path = os.environ['embedding_model_path'] if 'embedding_model_path' in os.environ else assert False,"Please set embedding_model_path"
+if 'OPENAI_API_KEY' not in os.environ:
+    assert False, "Please set OPENAI_API_KEY"
+
+OPENAI_API = os.environ['OPENAI_API_KEY']
+
+if 'OPENAI_BASE_URL' not in os.environ:
+    OpenAI_BASE_URL = "https://api.openai.com/v1/"
+else:
+    OpenAI_BASE_URL = os.environ['OPENAI_BASE_URL']
+
+if 'embedding_model_path' not in os.environ:
+    raise EnvironmentError("Please set embedding_model_path")
+
+embedding_model_path = os.environ['embedding_model_path']
 ```
 
 ## single RL

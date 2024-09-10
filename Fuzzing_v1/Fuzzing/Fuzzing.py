@@ -270,7 +270,12 @@ question = question_seed.visit()
 template = template_seed.visit()
 origin_answer =  target_model.run(question)
 
-embedding_model = SentenceTransformer('/home/RatAttacker/model/models--sentence-transformers--paraphrase-MiniLM-L6-v2/snapshots/3bf4ae7445aa77c8daaef06518dd78baffff53c9', cache_folder="./model", trust_remote_code=True)
+if 'embedding_model_path' not in os.environ:
+    raise EnvironmentError("Please set embedding_model_path")
+
+embedding_model_path = os.environ['embedding_model_path']
+
+embedding_model = SentenceTransformer(embedding_model_path, cache_folder="./model", trust_remote_code=True)
 
 def sent_chunking(text):
     doc = nlp(text)

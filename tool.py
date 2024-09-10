@@ -3,8 +3,16 @@ from enum import Enum
 import configparser
 import os
 
-OpenAI_API = "Your API KEY"
-OpenAI_BASE_URL = "https://api.openai.com/v1/"
+if 'OPENAI_API_KEY' not in os.environ:
+    assert False, "Please set OPENAI_API_KEY"
+
+OPENAI_API = os.environ['OPENAI_API_KEY']
+
+if 'OPENAI_BASE_URL' not in os.environ:
+    OpenAI_BASE_URL = "https://api.openai.com/v1/"
+else:
+    OpenAI_BASE_URL = os.environ['OPENAI_BASE_URL']
+    
 GPTGod_API = ""
 def prompt_compose(question_mutated : str
                    , template_mutated : str):
