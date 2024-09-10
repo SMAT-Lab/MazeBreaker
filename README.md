@@ -46,8 +46,6 @@ pip install -r requirements.txt
 ## LLM's interface
 We use [GPTGod](https://gptgod.online/), [deepseek](https://platform.deepseekc.om), [ollama](https://www.ollama.com), [openai](https://platform.openai.com)  as the interface of LLM. You can use the following code to interact with LLM.
 
-You should input the api-key in tool.py
-Besides, you should verify your path of embedding_model in line 273 of [Fuzzing.py](Fuzzing_v1/Fuzzing/Fuzzing.py)
 ```shell
 export API_KEY=xxxxxxx
 export embedding_model_path=xxxxxxxx
