@@ -78,6 +78,7 @@ We use AgileRL to conduct the experiment. The framework of the multi-agent RL is
 <p align="center">
 <img src="./figure/rl.png" alt="drawing" width="600"/>
 </p>
+![image info](./figure/rl.png)
 
 
 You should change the target model name in line 20, and you can reload the attack process by cancel the comment in line 145.
@@ -89,6 +90,7 @@ We provide the average accumulated_reward of the successful attack when attackin
 <p align="center">
 <img src="./figure/accumulated_reward.png" alt="drawing" width="600"/>
 </p>
+![image info](./figure/accumulated_reward.png)
 
 ## calculate script
 ### ASR
