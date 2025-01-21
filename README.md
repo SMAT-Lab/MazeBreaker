@@ -105,7 +105,7 @@ Besides, we use another two judgement model to evaluate the attack. You can use 
 
 ## Results of our framework
 We provide the [results](https://drive.google.com/drive/folders/1kVZDMlj682CVNJGHxehKpDttXQ6a3MPX?usp=drive_link) of our framework using two different judgement models.
-![table4_5](https://github.com/user-attachments/assets/6960fbcc-b8f4-4197-a760-338182667a0f)
+![table1](./figure/table1.png)
 
 ## Citing our work
 ```cite
