@@ -1,4 +1,4 @@
-# RatAttacker
+# MazeBreaker: Multi-Agent Reinforcement Learning for Dynamic Jailbreaking of LLM Security Defenses
 
 # Table of content
 - [Framework](#framework)
