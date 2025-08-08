@@ -5,19 +5,24 @@
 - [About](#About)
 - [Environment setup](#environment-setup)
 - [LLM's interface](#llms-interface)  
-- [single RL](#single-rl)
 - [MARL](#marl)
 - [ASR calculate](#calculate-script)
 - [Results of our framework](#results-of-our-framework)
 - [Citing our work](#citing-our-work)
 
   # Framework
-This is the official repository for "RatAttacker: Escaping LLM Security Maze for Effective Jailbreaking"
+This is the official repository for "MazeBreaker: Multi-Agent Reinforcement Learning for Dynamic Jailbreaking of LLM Security Defenses"
 ![image info](./figure/maze_motivation_with_example.png)
 
 Here's the framework of our attack approach
-![image info](./figure/overview.png)
+![image info](./figure/overview_01.png)
 
+Here's the novelty of our method
+![compare](./figure/table1.png)
+
+## News
+
+This paper is accepted by ICSE2026!
 
 ## About
 ### Introduction
@@ -65,10 +70,6 @@ if 'embedding_model_path' not in os.environ:
 embedding_model_path = os.environ['embedding_model_path']
 ```
 
-## single RL
-```shell
-python RL.py
-```
 ## MARL
 We use AgileRL to conduct the experiment. The framework of the multi-agent RL is:
 ![image info](./figure/rl.png)
@@ -104,9 +105,18 @@ Besides, we use another two judgement model to evaluate the attack. You can use 
 
 
 ## Results of our framework
-We provide the [results](https://drive.google.com/drive/folders/1kVZDMlj682CVNJGHxehKpDttXQ6a3MPX?usp=drive_link) of our framework using two different judgement models.
-![table1](./figure/table1.png)
+We provide the [results](https://drive.google.com/drive/folders/1kVZDMlj682CVNJGHxehKpDttXQ6a3MPX?usp=drive_link) of our framework using DeepSeek-V3.
+![table2](./figure/table2.png)
 
 ## Citing our work
 ```cite
+@misc{lin2024pathseekerexploringllmsecurity,
+      title={PathSeeker: Exploring LLM Security Vulnerabilities with a Reinforcement Learning-Based Jailbreak Approach}, 
+      author={Zhihao Lin and Wei Ma and Mingyi Zhou and Yanjie Zhao and Haoyu Wang and Yang Liu and Jun Wang and Li Li},
+      year={2024},
+      eprint={2409.14177},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2409.14177}, 
+}
 ```
